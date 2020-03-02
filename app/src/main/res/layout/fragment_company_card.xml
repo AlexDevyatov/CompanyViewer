@@ -23,17 +23,20 @@
         android:layout_width="@dimen/image_width"
         android:layout_height="@dimen/image_height"
         app:layout_constraintStart_toStartOf="parent"
+        android:padding="@dimen/standard_padding"
         app:layout_constraintTop_toBottomOf="@+id/tvCompanyName" />
 
     <TextView
         android:id="@+id/tvCompanyDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
         android:paddingTop="@dimen/standard_padding"
+        android:scrollbars="vertical"
         android:textColor="@color/textColorBlack"
-        tools:text="By Park Inn\r\nПриглашаем посетить европейский ресторан, который является украшением международного отеля Park Inn by Radisson, находящегося на центральной площади столицы Удмуртии.\r\n\r\nЕвропейская кухня порадует гостей города и ценителей гармоничным вкусом и разнообразием выбора. Обширные площади ресторана позволят уютно расположиться большому количеству гостей. Банкетный зал располагает к тому, чтобы организовать официальный прием иностранных делегаций. Привлекательная обстановка доставит удовольствие гармонией стиля, утонченность интерьера усладит взор высоких гостей грациозным изяществом. Живая музыка подарит прекрасное настроение и оставит приятное послевкусие. Для удобства клиентов ресторан предоставляет свободный Wi-Fi. В теплое время открыта для посещения летняя терраса al Café, где вы сможете насладиться прохладительными напитками и яствами.\r\n\r\nОпытный шеф-повар представит все богатство выбора традиционной европейской кухни и нестандартные авторские блюда. Естественная европейская кухня славится широким ансамблем блюд из овощей и мяса с небольшим добавлением приправ и специй. Это способствует достижению оптимально насыщенного и естественного вкуса компонентов. Перед употреблением блюда рекомендуется заказать аперитив – какой-либо спиртной напиток – для повышения аппетита и лучшего усвоения пищи. \r\n\r\nОпределить наше точное местоположение поможет сайт Ижевска. С нетерпением ожидаем появления новых гостей."
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivCompanyImage" />
+        app:layout_constraintTop_toBottomOf="@+id/ivCompanyImage"
+        tools:text="By Park Inn\r\nПриглашаем посетить европейский ресторан, который является украшением международного отеля Park Inn by Radisson, находящегося на центральной площади столицы Удмуртии.\r\n\r\nЕвропейская кухня порадует гостей города и ценителей гармоничным вкусом и разнообразием выбора. Обширные площади ресторана позволят уютно расположиться большому количеству гостей. Банкетный зал располагает к тому, чтобы организовать официальный прием иностранных делегаций. Привлекательная обстановка доставит удовольствие гармонией стиля, утонченность интерьера усладит взор высоких гостей грациозным изяществом. Живая музыка подарит прекрасное настроение и оставит приятное послевкусие. Для удобства клиентов ресторан предоставляет свободный Wi-Fi. В теплое время открыта для посещения летняя терраса al Café, где вы сможете насладиться прохладительными напитками и яствами.\r\n\r\nОпытный шеф-повар представит все богатство выбора традиционной европейской кухни и нестандартные авторские блюда. Естественная европейская кухня славится широким ансамблем блюд из овощей и мяса с небольшим добавлением приправ и специй. Это способствует достижению оптимально насыщенного и естественного вкуса компонентов. Перед употреблением блюда рекомендуется заказать аперитив – какой-либо спиртной напиток – для повышения аппетита и лучшего усвоения пищи. \r\n\r\nОпределить наше точное местоположение поможет сайт Ижевска. С нетерпением ожидаем появления новых гостей." />
 
     <TextView
         android:id="@+id/tvWebsite"
@@ -41,18 +44,22 @@
         android:layout_height="wrap_content"
         android:textColor="@color/textColorBlack"
         android:autoLink="web"
+        android:padding="@dimen/standard_padding"
         tools:text="www.sparta-fitness.ru"
         app:layout_constraintStart_toEndOf="@+id/ivCompanyImage"
-        app:layout_constraintTop_toBottomOf="@+id/tvCompanyName"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvCompanyName"
+        app:layout_constraintBottom_toTopOf="@+id/tvPhone"/>
 
     <TextView
         android:id="@+id/tvPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/textColorBlack"
         android:autoLink="phone"
-        tools:text="+79875218872"
+        android:textColor="@color/textColorBlack"
+        android:padding="@dimen/standard_padding"
+        app:layout_constraintBottom_toTopOf="@+id/tvCompanyDesc"
         app:layout_constraintStart_toEndOf="@+id/ivCompanyImage"
-        app:layout_constraintTop_toBottomOf="@+id/tvWebsite"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvWebsite"
+        tools:text="+79875218872" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
