@@ -21,38 +21,28 @@ class NetModule {
 
     @Provides
     @Singleton
-    internal fun provideGson(): Gson {
-        val gsonBuilder = GsonBuilder()
-        return gsonBuilder.create()
-    }
+    internal fun provideGson(): Gson = GsonBuilder().create()
 
     @Provides
     @Singleton
-    internal fun provideOkHttpClient(): OkHttpClient {
-        val client = OkHttpClient.Builder()
-        return client.build()
-    }
+    internal fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder().build()
 
     @Provides
     @Singleton
-    internal fun provideRetrofit(gson : Gson, okHttpClient: OkHttpClient): Retrofit {
-        return Retrofit.Builder()
+    internal fun provideRetrofit(gson : Gson, okHttpClient: OkHttpClient): Retrofit
+            = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .baseUrl(BASE_URL)
             .client(okHttpClient)
             .build()
-    }
 
     @Provides
     @Singleton
-    internal fun provideApiService(retrofit: Retrofit): ApiService {
-        return retrofit.create<ApiService>(ApiService::class.java)
-    }
+    internal fun provideApiService(retrofit: Retrofit): ApiService
+            = retrofit.create<ApiService>(ApiService::class.java)
 
     @Provides
     @Singleton
-    internal fun provideRepository(service: ApiService): Repository {
-        return Repository(service)
-    }
+    internal fun provideRepository(service: ApiService): Repository = Repository(service)
 }
