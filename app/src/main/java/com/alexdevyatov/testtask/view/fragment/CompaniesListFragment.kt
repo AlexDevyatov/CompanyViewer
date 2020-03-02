@@ -43,6 +43,11 @@ class CompaniesListFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_companies_list, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        companiesViewModel!!.refresh()
+    }
+
     private fun showCompanies(companies: List<Company>) {
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = CompaniesAdapter(companies, activity!!)

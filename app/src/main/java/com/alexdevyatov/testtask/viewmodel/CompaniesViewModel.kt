@@ -20,10 +20,10 @@ class CompaniesViewModel(appComponent: AppComponent) : ViewModel() {
     @Inject
     lateinit var repository: Repository
 
-    private val companies: MutableLiveData<List<Company>> by lazy {
-        MutableLiveData<List<Company>>().also {
-            loadData()
-        }
+    private val companies: MutableLiveData<List<Company>> = MutableLiveData()
+
+    fun refresh() {
+        loadData()
     }
 
     fun getCompanies() : LiveData<List<Company>> {
