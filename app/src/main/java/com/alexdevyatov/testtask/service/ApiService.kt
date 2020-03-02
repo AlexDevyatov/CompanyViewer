@@ -14,5 +14,5 @@ interface ApiService {
     @GET("test.php")
     fun getCompanyInfo(
         @Query("id") id: Int
-    ) : Single<CompanyInfo>
+    ) : Single<List<CompanyInfo>>
 }

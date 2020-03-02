@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="By Park Inn.Ижевск"
+        android:textSize="@dimen/text_heading_size"
         android:gravity="center"
         android:textColor="@color/textColorBlack"
         app:layout_constraintStart_toStartOf="parent"

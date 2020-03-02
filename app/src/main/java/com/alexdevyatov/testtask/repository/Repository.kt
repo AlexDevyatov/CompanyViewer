@@ -9,5 +9,5 @@ class Repository(private val service: ApiService) {
 
     fun getCompaniesList(): Single<List<Company>> = service.getCompaniesList()
 
-    fun getCompanyInfo(id: Int): Single<CompanyInfo> = service.getCompanyInfo(id)
+    fun getCompanyInfo(id: Int): Single<List<CompanyInfo>> = service.getCompanyInfo(id)
 }
