@@ -45,10 +45,14 @@ class CompaniesListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        recyclerView.visibility = View.GONE
+        progressBar.visibility = View.VISIBLE
         companiesViewModel!!.refresh()
     }
 
     private fun showCompanies(companies: List<Company>) {
+        recyclerView.visibility = View.VISIBLE
+        progressBar.visibility = View.GONE
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = CompaniesAdapter(companies, activity!!)
     }

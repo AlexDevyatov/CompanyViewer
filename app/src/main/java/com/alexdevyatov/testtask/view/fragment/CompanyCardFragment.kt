@@ -46,15 +46,36 @@ class CompanyCardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         tvCompanyDesc.movementMethod = ScrollingMovementMethod()
+        showProgressBar()
         companyInfoViewModel!!.companyId = args.companyId
     }
 
     private fun showCompanyInfo(companyInfo: CompanyInfo?) {
+        tvCompanyDesc.movementMethod = ScrollingMovementMethod()
+        hideProgressBar()
         tvCompanyName.text = companyInfo!!.name
         tvCompanyDesc.text = companyInfo.description
         tvPhone.text = companyInfo.phone
         tvWebsite.text = companyInfo.url
         Glide.with(this).load(NetModule.BASE_URL + companyInfo.image)
             .centerCrop().into(ivCompanyImage)
+    }
+
+    private fun showProgressBar() {
+        tvCompanyName.visibility = View.GONE
+        tvCompanyDesc.visibility = View.GONE
+        tvWebsite.visibility = View.GONE
+        tvPhone.visibility = View.GONE
+        ivCompanyImage.visibility = View.GONE
+        progressBar.visibility = View.VISIBLE
+    }
+
+    private fun hideProgressBar() {
+        tvCompanyName.visibility = View.VISIBLE
+        tvCompanyDesc.visibility = View.VISIBLE
+        tvWebsite.visibility = View.VISIBLE
+        tvPhone.visibility = View.VISIBLE
+        ivCompanyImage.visibility = View.VISIBLE
+        progressBar.visibility = View.GONE
     }
 }
