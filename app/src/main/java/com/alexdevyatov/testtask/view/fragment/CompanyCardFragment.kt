@@ -51,14 +51,28 @@ class CompanyCardFragment : Fragment() {
     }
 
     private fun showCompanyInfo(companyInfo: CompanyInfo?) {
-        tvCompanyDesc.movementMethod = ScrollingMovementMethod()
         hideProgressBar()
-        tvCompanyName.text = companyInfo!!.name
-        tvCompanyDesc.text = companyInfo.description
-        tvPhone.text = companyInfo.phone
-        tvWebsite.text = companyInfo.url
-        Glide.with(this).load(NetModule.BASE_URL + companyInfo.image)
-            .centerCrop().into(ivCompanyImage)
+        if (companyInfo != null) {
+            tvCompanyDesc.movementMethod = ScrollingMovementMethod()
+            tvCompanyName.text = companyInfo.name
+            tvCompanyDesc.text = companyInfo.description
+            tvPhone.text = companyInfo.phone
+            tvWebsite.text = companyInfo.url
+            Glide.with(this).load(NetModule.BASE_URL + companyInfo.image)
+                .centerCrop().into(ivCompanyImage)
+        } else {
+            showErrorMessage()
+        }
+    }
+
+    private fun showErrorMessage() {
+        tvCompanyName.visibility = View.GONE
+        tvCompanyDesc.visibility = View.GONE
+        tvWebsite.visibility = View.GONE
+        tvPhone.visibility = View.GONE
+        ivCompanyImage.visibility = View.GONE
+        tvErrorMessage.visibility = View.VISIBLE
+        progressBar.visibility = View.GONE
     }
 
     private fun showProgressBar() {
@@ -67,6 +81,7 @@ class CompanyCardFragment : Fragment() {
         tvWebsite.visibility = View.GONE
         tvPhone.visibility = View.GONE
         ivCompanyImage.visibility = View.GONE
+        tvErrorMessage.visibility = View.GONE
         progressBar.visibility = View.VISIBLE
     }
 
@@ -76,6 +91,7 @@ class CompanyCardFragment : Fragment() {
         tvWebsite.visibility = View.VISIBLE
         tvPhone.visibility = View.VISIBLE
         ivCompanyImage.visibility = View.VISIBLE
+        tvErrorMessage.visibility = View.GONE
         progressBar.visibility = View.GONE
     }
 }

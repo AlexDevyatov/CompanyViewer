@@ -36,6 +36,7 @@ class CompanyInfoViewModel(appComponent: AppComponent) : ViewModel() {
             .getCompanyInfo(id)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
+            .doOnError { error -> this.companyInfo.postValue(null) }
             .subscribe(
                 { companyInfoList ->
                     this.companyInfo.postValue(companyInfoList[0])
