@@ -15,7 +15,9 @@ import javax.inject.Singleton
 @Module
 class NetModule {
 
-    private val BASE_URL = "http://megakohz.bget.ru/test_task/"
+    companion object {
+        const val BASE_URL = "http://megakohz.bget.ru/test_task/"
+    }
 
     @Provides
     @Singleton

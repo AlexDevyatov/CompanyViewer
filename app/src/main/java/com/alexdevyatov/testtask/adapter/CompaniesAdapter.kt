@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.alexdevyatov.testtask.R
+import com.alexdevyatov.testtask.di.NetModule
 import com.alexdevyatov.testtask.model.Company
 import com.alexdevyatov.testtask.view.fragment.CompaniesListFragmentDirections
 import com.bumptech.glide.Glide
@@ -22,7 +23,7 @@ class CompaniesAdapter(val companies: List<Company>,
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val company = companies[position]
         holder.tvCompanyName.text = company.name
-        Glide.with(context).load(company.image).centerCrop().into(holder.ivCompanyImage)
+        Glide.with(context).load(NetModule.BASE_URL + company.image).centerCrop().into(holder.ivCompanyImage)
         holder.itemView.setOnClickListener {
             it.findNavController().navigate(CompaniesListFragmentDirections.actionCompaniesListFragmentToCompanyCardFragment())
         }
