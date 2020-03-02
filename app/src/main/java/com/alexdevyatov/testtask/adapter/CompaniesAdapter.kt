@@ -25,7 +25,7 @@ class CompaniesAdapter(val companies: List<Company>,
         holder.tvCompanyName.text = company.name
         Glide.with(context).load(NetModule.BASE_URL + company.image).centerCrop().into(holder.ivCompanyImage)
         holder.itemView.setOnClickListener {
-            it.findNavController().navigate(CompaniesListFragmentDirections.actionCompaniesListFragmentToCompanyCardFragment())
+            it.findNavController().navigate(CompaniesListFragmentDirections.actionCompaniesListFragmentToCompanyCardFragment(company.id))
         }
     }
 

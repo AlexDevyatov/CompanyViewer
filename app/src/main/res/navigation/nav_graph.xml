@@ -14,5 +14,9 @@
     <fragment
         android:id="@+id/companyCardFragment"
         android:name="com.alexdevyatov.testtask.view.fragment.CompanyCardFragment"
-        android:label="CompanyCardFragment" />
+        android:label="CompanyCardFragment" >
+        <argument
+            android:name="companyId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

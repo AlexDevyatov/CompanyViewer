@@ -1,14 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/standard_padding"
     tools:context=".view.fragment.CompanyCardFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/tvCompanyName"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="CompanyCardFragment" />
+        android:layout_height="wrap_content"
+        tools:text="By Park Inn.Ижевск"
+        android:gravity="center"
+        android:textColor="@color/textColorBlack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/ivCompanyImage"
+        android:layout_width="@dimen/image_width"
+        android:layout_height="@dimen/image_height"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCompanyName" />
+
+    <TextView
+        android:id="@+id/tvCompanyDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/standard_padding"
+        android:textColor="@color/textColorBlack"
+        tools:text="By Park Inn\r\nПриглашаем посетить европейский ресторан, который является украшением международного отеля Park Inn by Radisson, находящегося на центральной площади столицы Удмуртии.\r\n\r\nЕвропейская кухня порадует гостей города и ценителей гармоничным вкусом и разнообразием выбора. Обширные площади ресторана позволят уютно расположиться большому количеству гостей. Банкетный зал располагает к тому, чтобы организовать официальный прием иностранных делегаций. Привлекательная обстановка доставит удовольствие гармонией стиля, утонченность интерьера усладит взор высоких гостей грациозным изяществом. Живая музыка подарит прекрасное настроение и оставит приятное послевкусие. Для удобства клиентов ресторан предоставляет свободный Wi-Fi. В теплое время открыта для посещения летняя терраса al Café, где вы сможете насладиться прохладительными напитками и яствами.\r\n\r\nОпытный шеф-повар представит все богатство выбора традиционной европейской кухни и нестандартные авторские блюда. Естественная европейская кухня славится широким ансамблем блюд из овощей и мяса с небольшим добавлением приправ и специй. Это способствует достижению оптимально насыщенного и естественного вкуса компонентов. Перед употреблением блюда рекомендуется заказать аперитив – какой-либо спиртной напиток – для повышения аппетита и лучшего усвоения пищи. \r\n\r\nОпределить наше точное местоположение поможет сайт Ижевска. С нетерпением ожидаем появления новых гостей."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivCompanyImage" />
+
+    <TextView
+        android:id="@+id/tvWebsite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColorBlack"
+        android:autoLink="web"
+        tools:text="www.sparta-fitness.ru"
+        app:layout_constraintStart_toEndOf="@+id/ivCompanyImage"
+        app:layout_constraintTop_toBottomOf="@+id/tvCompanyName"/>
+
+    <TextView
+        android:id="@+id/tvPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColorBlack"
+        android:autoLink="phone"
+        tools:text="+79875218872"
+        app:layout_constraintStart_toEndOf="@+id/ivCompanyImage"
+        app:layout_constraintTop_toBottomOf="@+id/tvWebsite"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,9 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.alexdevyatov.testtask.R
 
-/**
- * A simple [Fragment] subclass.
- */
 class CompanyCardFragment : Fragment() {
 
     override fun onCreateView(
